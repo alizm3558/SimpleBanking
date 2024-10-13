@@ -1,0 +1,82 @@
+{
+	"info": {
+		"_postman_id": "314cc95f-a592-4327-9406-ddc6c7a5c4ac",
+		"name": "SimpleBanking",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "17151889"
+	},
+	"item": [
+		{
+			"name": "all account",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080//account/v1"
+			},
+			"response": []
+		},
+		{
+			"name": "get account by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/account/v1/1234567-5"
+			},
+			"response": []
+		},
+		{
+			"name": "create account",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"accountNumber\": \"1234567-5\",\n    \"owner\": \"Mehmet Bakır\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080//account/v1/create"
+			},
+			"response": []
+		},
+		{
+			"name": "credit account- para yatırma",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"amount\": 500.0\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080//account/v1/credit/1234567-5"
+			},
+			"response": []
+		},
+		{
+			"name": "debit account- para çekme",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"amount\": 500\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080//account/v1/debit/123456"
+			},
+			"response": []
+		}
+	]
+}
