@@ -1,3 +1,6 @@
+Verilen tasklar tamamlanmıştır. Bunlara ek olarak resource içerisinde postman collection dosyası paylaşılmıştır. Teşekkürler.
+-------------------------------
+
 # Getting Started with Simple Banking (Estimated duration 1-3 hours)
 
 In this assignment you will build a banking service that can handle any number of transactions for bank accounts. The service is part of a larger collection of services that model the inner workings of a bank. The services for the "bank account" provide a simple model of how bank accounts might work in an overly simplified world.
