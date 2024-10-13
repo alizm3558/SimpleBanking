@@ -1,4 +1,4 @@
-Verilen tasklar tamamlanmıştır. Bunlara ek olarak Resources içerisinde postman collection dosyası paylaşılmıştır. Teşekkürler.
+Verilen tasklar tamamlanmıştır. Ek olarak Transfer servisi geliştirilmiştir. Bir hesaptan başka bir hesaba para gönderimi sağlanmaktadır.  Resources içerisinde postman collection dosyası paylaşılmıştır. Teşekkürler.
 -------------------------------
 
 # Getting Started with Simple Banking (Estimated duration 1-3 hours)
