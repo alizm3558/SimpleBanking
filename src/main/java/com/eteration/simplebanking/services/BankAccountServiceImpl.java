@@ -122,4 +122,31 @@ public class BankAccountServiceImpl implements BankAccountService {
         accountRepository.save(account);
         return status;
     }
+
+    public TransactionStatus phoneBillPayment(String accountNumber, PhoneBillPaymentTransaction transaction) throws InsufficientBalanceException {
+
+        if (accountNumber == null || accountNumber.trim().isEmpty()) {
+            throw new InsufficientBalanceException("Hesap numarası boş olamaz");
+        }
+
+        BankAccount account = findAccount(accountNumber);
+
+        if (account == null) {
+            throw new AccountNotFoundException("Hesap bulunamadı: " + accountNumber);
+        }
+
+        if (account.getBalance() < transaction.getAmount()) {
+            throw new InsufficientBalanceException("Yetersiz bakiye");
+        }
+
+        TransactionStatus status = new TransactionStatus("OK", UUID.randomUUID().toString());
+
+        transaction.setAccount(account);
+        transaction.setApprovalCode(status.getApprovalCode());
+        account.post(transaction);
+
+        accountRepository.save(account);
+
+        return  status;
+    }
 }

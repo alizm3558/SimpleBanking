@@ -2,11 +2,8 @@ package com.eteration.simplebanking.controller;
 
 import com.eteration.simplebanking.dto.BankAccountDto;
 import com.eteration.simplebanking.exception.AccountNotFoundException;
-import com.eteration.simplebanking.model.BankAccount;
-import com.eteration.simplebanking.model.DepositTransaction;
+import com.eteration.simplebanking.model.*;
 import com.eteration.simplebanking.exception.InsufficientBalanceException;
-import com.eteration.simplebanking.model.TransactionStatus;
-import com.eteration.simplebanking.model.WithdrawalTransaction;
 import com.eteration.simplebanking.services.BankAccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -89,6 +86,15 @@ public class BankAccountController {
     public ResponseEntity<TransactionStatus> debit(@PathVariable String accountNumber, @RequestBody WithdrawalTransaction withdrawalTransaction) throws InsufficientBalanceException {
 
         TransactionStatus status = bankAccountService.debit(accountNumber, withdrawalTransaction.getAmount());
+        return ResponseEntity.ok(status);
+
+    }
+
+    @PostMapping("pay/{accountNumber}")
+    public ResponseEntity<TransactionStatus> payPhoneBill(@PathVariable String accountNumber,
+                                                          @RequestBody PhoneBillPaymentTransaction phoneBillPaymentTransaction) throws InsufficientBalanceException {
+
+        TransactionStatus status = bankAccountService.phoneBillPayment(accountNumber, phoneBillPaymentTransaction);
         return ResponseEntity.ok(status);
 
     }

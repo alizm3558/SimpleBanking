@@ -1,10 +1,19 @@
 package com.eteration.simplebanking.model;
 
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+
+@Entity
+@DiscriminatorValue("PHONEBILLPAYMENT")
 public class PhoneBillPaymentTransaction extends Transaction {
 
     private String operator;
     private String phoneNumber;
 
+    private String approvalCode;
+    public PhoneBillPaymentTransaction() {
+        super();
+    }
     // Constructor
     public PhoneBillPaymentTransaction(String operator, String phoneNumber, double amount) {
         super(amount); // Transaction'ın amount özelliğini ayarlamak
@@ -19,6 +28,14 @@ public class PhoneBillPaymentTransaction extends Transaction {
 
     public String getPhoneNumber() {
         return phoneNumber;
+    }
+
+    public String getApprovalCode() {
+        return approvalCode;
+    }
+
+    public void setApprovalCode(String approvalCode) {
+        this.approvalCode = approvalCode;
     }
 
     @Override
