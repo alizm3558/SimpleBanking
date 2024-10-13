@@ -77,6 +77,24 @@
 				"url": "http://localhost:8080//account/v1/debit/123456"
 			},
 			"response": []
+		},
+		{
+			"name": "payment- fatura ödeme",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"operator\": \"Vodafone\",\n  \"phoneNumber\": \"5423345566\",\n  \"amount\": 20\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080//account/v1/pay/123456"
+			},
+			"response": []
 		}
 	]
 }
