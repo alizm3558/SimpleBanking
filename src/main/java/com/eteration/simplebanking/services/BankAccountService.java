@@ -5,6 +5,8 @@ import com.eteration.simplebanking.model.TransactionStatus;
 import com.eteration.simplebanking.dto.BankAccountDto;
 import com.eteration.simplebanking.model.BankAccount;
 import com.eteration.simplebanking.exception.InsufficientBalanceException;
+import com.eteration.simplebanking.model.TransferTransaction;
+import org.h2.value.Transfer;
 
 import java.util.List;
 
@@ -17,4 +19,6 @@ public interface BankAccountService {
     TransactionStatus debit(String accountNumber, double amount) throws InsufficientBalanceException;
     TransactionStatus phoneBillPayment(String accountNumber, PhoneBillPaymentTransaction transaction) throws InsufficientBalanceException;
 
-    }
+    TransactionStatus transfer(String accountNumber, TransferTransaction transaction) throws InsufficientBalanceException;
+
+}

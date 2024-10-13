@@ -149,4 +149,49 @@ public class BankAccountServiceImpl implements BankAccountService {
 
         return  status;
     }
+
+    @Override
+    public TransactionStatus transfer(String accountNumber, TransferTransaction transaction) throws InsufficientBalanceException {
+
+
+        if (accountNumber == null || transaction.getTargetAccountNumber() == null) {
+            throw new InsufficientBalanceException("Hesap numaraları boş olamaz");
+        }
+
+        BankAccount account = findAccount(accountNumber);
+
+        BankAccount targetAccount = findAccount(transaction.getTargetAccountNumber());
+
+        if (account == null) {
+            throw new AccountNotFoundException("Hesap bulunamadı: " + accountNumber);
+        }
+
+        if (targetAccount == null) {
+            throw new AccountNotFoundException("Gönderilecek hesap bulunamadı: " + transaction.getTargetAccountNumber());
+        }
+
+        if (account.getBalance() < transaction.getAmount()) {
+            throw new InsufficientBalanceException("Yetersiz bakiye");
+        }
+
+        TransactionStatus status = new TransactionStatus("OK", UUID.randomUUID().toString());
+
+        TransferTransaction transferTransaction = new TransferTransaction(accountNumber, transaction.getTargetAccountNumber(), transaction.getAmount());
+        transferTransaction.setAccount(account);
+        transferTransaction.setApprovalCode(status.getApprovalCode());
+        account.post(transferTransaction);
+
+        accountRepository.save(account);
+
+        DepositTransaction depositTransaction = new DepositTransaction(transaction.getAmount());
+        depositTransaction.setAccount(targetAccount);
+        depositTransaction.setApprovalCode(status.getApprovalCode());
+        targetAccount.post(depositTransaction);
+
+        accountRepository.save(targetAccount);
+
+        transactionRepository.save(transferTransaction);
+
+        return status;
+    }
 }

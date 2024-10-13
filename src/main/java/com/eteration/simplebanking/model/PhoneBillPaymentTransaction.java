@@ -40,7 +40,7 @@ public class PhoneBillPaymentTransaction extends Transaction {
 
     @Override
     public void apply(BankAccount account) {
-        // Fatura ödemesi, bakiyeden düşülecek
+
         account.setBalance(account.getBalance() - getAmount());
     }
 

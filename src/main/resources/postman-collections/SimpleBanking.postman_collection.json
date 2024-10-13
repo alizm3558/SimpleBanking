@@ -20,7 +20,7 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"url": "http://localhost:8080/account/v1/1234567-5"
+				"url": "http://localhost:8080/account/v1/123456"
 			},
 			"response": []
 		},
@@ -56,7 +56,7 @@
 						}
 					}
 				},
-				"url": "http://localhost:8080//account/v1/credit/1234567-5"
+				"url": "http://localhost:8080//account/v1/credit/123456"
 			},
 			"response": []
 		},
@@ -93,6 +93,24 @@
 					}
 				},
 				"url": "http://localhost:8080//account/v1/pay/123456"
+			},
+			"response": []
+		},
+		{
+			"name": "transfer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"targetAccountNumber\": \"123456\",\n  \"amount\": 60\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080//account/v1/transfer/1234567"
 			},
 			"response": []
 		}

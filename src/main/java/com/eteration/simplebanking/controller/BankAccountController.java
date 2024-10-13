@@ -93,8 +93,15 @@ public class BankAccountController {
     @PostMapping("pay/{accountNumber}")
     public ResponseEntity<TransactionStatus> payPhoneBill(@PathVariable String accountNumber,
                                                           @RequestBody PhoneBillPaymentTransaction phoneBillPaymentTransaction) throws InsufficientBalanceException {
-
         TransactionStatus status = bankAccountService.phoneBillPayment(accountNumber, phoneBillPaymentTransaction);
+        return ResponseEntity.ok(status);
+
+    }
+
+    @PostMapping("transfer/{accountNumber}")
+    public ResponseEntity<TransactionStatus> transfer(@PathVariable String accountNumber,
+                                                          @RequestBody TransferTransaction transferTransaction) throws InsufficientBalanceException {
+        TransactionStatus status = bankAccountService.transfer(accountNumber, transferTransaction);
         return ResponseEntity.ok(status);
 
     }
