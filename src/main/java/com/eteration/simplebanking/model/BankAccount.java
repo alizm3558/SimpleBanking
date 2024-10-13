@@ -18,6 +18,9 @@ public class BankAccount {
     private String owner;
     private double balance;
 
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date createDate = new Date();
+
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "account")
     private List<Transaction> transactions = new ArrayList<>();
 
