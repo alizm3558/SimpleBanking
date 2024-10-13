@@ -6,7 +6,7 @@ import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
 import com.eteration.simplebanking.controller.BankAccountController;
-import com.eteration.simplebanking.controller.TransactionStatus;
+import com.eteration.simplebanking.model.TransactionStatus;
 import com.eteration.simplebanking.exception.InsufficientBalanceException;
 import com.eteration.simplebanking.model.BankAccount;
 import com.eteration.simplebanking.model.DepositTransaction;

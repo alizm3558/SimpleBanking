@@ -1,7 +1,7 @@
 package com.eteration.simplebanking.services;
 
 
-import com.eteration.simplebanking.controller.TransactionStatus;
+import com.eteration.simplebanking.model.TransactionStatus;
 import com.eteration.simplebanking.dto.BankAccountDto;
 import com.eteration.simplebanking.exception.AccountNotFoundException;
 import com.eteration.simplebanking.exception.InsufficientBalanceException;

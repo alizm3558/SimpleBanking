@@ -5,6 +5,7 @@ import com.eteration.simplebanking.exception.AccountNotFoundException;
 import com.eteration.simplebanking.model.BankAccount;
 import com.eteration.simplebanking.model.DepositTransaction;
 import com.eteration.simplebanking.exception.InsufficientBalanceException;
+import com.eteration.simplebanking.model.TransactionStatus;
 import com.eteration.simplebanking.model.WithdrawalTransaction;
 import com.eteration.simplebanking.services.BankAccountService;
 import org.springframework.beans.factory.annotation.Autowired;

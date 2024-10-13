@@ -1,4 +1,4 @@
-package com.eteration.simplebanking.controller;
+package com.eteration.simplebanking.model;
 
 
 import lombok.Data;
