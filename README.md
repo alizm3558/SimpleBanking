@@ -1,4 +1,4 @@
-Verilen tasklar tamamlanmıştır. Bunlara ek olarak resource içerisinde postman collection dosyası paylaşılmıştır. Teşekkürler.
+Verilen tasklar tamamlanmıştır. Bunlara ek olarak Resources içerisinde postman collection dosyası paylaşılmıştır. Teşekkürler.
 -------------------------------
 
 # Getting Started with Simple Banking (Estimated duration 1-3 hours)
